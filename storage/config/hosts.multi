@@ -1,0 +1,9 @@
+
+# controller
+10.10.0.11       controller
+
+# compute
+10.10.0.31       compute
+
+# storage
+10.10.0.41       storage
