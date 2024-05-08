@@ -124,10 +124,11 @@ network:
 	
 -------------------------------------------------------------------------- 	
   10. 设置文件所有者
-  10.1 拷贝执行脚本到/stack/home目录
-  10.2 sudo -i
-  10.3 chown -R stack.stack *
-  10.4 exit退出root
+  10.1 sudo -i 切换到root 
+  10.2 下载代码  git clone git@github.com:sms-dingyz/openstack.git
+  10.3 进入openstack目录，cp * /stack/home/
+  10.4 chown -R stack.stack *
+  10.5 exit退出root
  
   
   
