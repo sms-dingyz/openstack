@@ -14,8 +14,6 @@ exec_logfile
 indicate_current_auto
 
 #------------------------------------------------------------------------------
-# Verify the Orchestration Service installation
-# Managed by Ram N Sangwan (www.rnsangwan.com) Visit www.theskillpedia.com for complete course
 #------------------------------------------------------------------------------
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

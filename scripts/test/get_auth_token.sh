@@ -11,10 +11,6 @@ exec_logfile
 indicate_current_auto
 
 #------------------------------------------------------------------------------
-# Use OpenStack client environment script
-# Managed by Ram N Sangwan (www.rnsangwan.com) Visit www.theskillpedia.com for complete course
-#------------------------------------------------------------------------------
-
 # Test in subshell environment to keep our environment clean
 (
 echo "Sourcing the admin credentials."
