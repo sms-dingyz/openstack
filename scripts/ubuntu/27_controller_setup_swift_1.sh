@@ -43,5 +43,8 @@ else
     https://opendev.org/openstack/swift/raw/branch/master/etc/swift.conf-sample
 fi
 
+#sudo curl -o /etc/swift/proxy-server.conf \
+#	https://opendev.org/openstack/swift/raw/branch/stable/zed/etc/proxy-server.conf-sample
+
 sudo curl -o /etc/swift/proxy-server.conf \
-	https://opendev.org/openstack/swift/raw/branch/stable/zed/etc/proxy-server.conf-sample
+	https://opendev.org/openstack/swift/raw/branch/master/etc/proxy-server.conf-sample
