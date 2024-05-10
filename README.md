@@ -66,12 +66,6 @@ network:
         via: 10.183.13.1
     eno6:
       dhcp4: true
-    eno7:
-      dhcp4: true
-    eno8:
-      dhcp4: true
-    ens1f0:
-      dhcp4: true
     ens1f1:
       dhcp4: true
     ens3f0:
@@ -275,14 +269,6 @@ network:
           via: 10.183.13.1
     eno6:
       dhcp4: true
-    eno7:
-      dhcp4: true
-    eno8:
-      dhcp4: true
-    ens1f0:
-      dhcp4: true
-    ens1f1:
-      dhcp4: true
     ens3f0:
       dhcp4: false
       dhcp6: false
@@ -446,8 +432,8 @@ stack@controller:~/scripts/ubuntu$ ./5_controller_install_memcached.sh
 stack@controller:~/scripts/ubuntu$ ./6_controller_setup_keystone_1.sh
 stack@controller:~/scripts/ubuntu$ ./7_controller_setup_keystone_2.sh
 
-stack@controller:~/scripts/ubuntu$ ./8_controller_setup_glance_1.sh1
-stack@controller:~/scripts/ubuntu$ ./9_controller_setup_glance_2.sh
+stack@controller:~/scripts/ubuntu$ ./8_controller_setup_glance_1.sh
+stack@controller:~/scripts/ubuntu$ ./9_controller_setup_glance_2.s
 
 stack@controller:~/scripts/ubuntu$ ./10_controller_setup_placement_1.sh
 stack@controller:~/scripts/ubuntu$ ./11_controller_setup_placement_2.sh
@@ -455,7 +441,6 @@ stack@controller:~/scripts/ubuntu$ ./11_controller_setup_placement_2.sh
 stack@controller:~/scripts/ubuntu$ ./12_controller_setup_nova_1.sh
 stack@controller:~/scripts/ubuntu$ ./13_controller_setup_nova_2.sh
 stack@controller:~/scripts/ubuntu$ ./14_controller_setup_nova_3.sh
-stack@controller:~/scripts/ubuntu$ ./15_controller_setup_nova_4.sh
 
 stack@controller:~/scripts/ubuntu$ ./16_controller_setup_neutron_1.sh
 stack@controller:~/scripts/ubuntu$ ./17_controller_setup_neutron_2.sh
@@ -468,36 +453,14 @@ stack@controller:~/scripts/ubuntu$ ./21_controller_setup_cinder_1.sh
 stack@controller:~/scripts/ubuntu$ ./22_controller_setup_cinder_2.sh
  
 -------------------------------------------------------------------------------
- 注意执行这个脚本时，需要根据硬盘的实际情况设置对应的磁盘分区
- cinder_dev=sdd  服务器
- cinder_dev=sda4  测试笔记本
- 如果是重复安装，在执行脚本之前，确保之前的volume被删除
- cd /home/stack
- ./removeVolumeGroup.sh
-
--------------------------------------------------------------------------------
-stack@controller:~/scripts/ubuntu$ ./23_controller_setup_cinder_3.sh
-
-
-
-stack@controller:~/scripts/ubuntu$ ./24_controller_setup_cinder_4.sh
-
-
-
-stack@controller:~/scripts/ubuntu$ ./25_controller_setup_heat_1.sh
-stack@controller:~/scripts/ubuntu$ ./26_controller_setup_heat_2.sh
 
 stack@controller:~/scripts/ubuntu$ ./27_controller_setup_swift_1.sh
 stack@controller:~/scripts/ubuntu$ ./28_controller_setup_swift_2.sh
 
-stack@controller:~/scripts/ubuntu$ ./30_contoller_setup_barbican_1.sh
-stack@controller:~/scripts/ubuntu$ ./31_controller_setup_barbican_2.sh
-stack@controller:~/scripts/ubuntu$ ./32_controller_setup_barbican_3.sh
-
  
 -------------------------------------------------------------------------------
 //very importance Don't Execute the script 29_controller_setup_swift_3.sh  now.  it will 
-be executed after compute node and storage node finish
+be executed after finishing installation of  storage node
 -------------------------------------------------------------------------------
 stack@controller:~/scripts/ubuntu$ ./29_controller_setup_swift_3.sh
 
