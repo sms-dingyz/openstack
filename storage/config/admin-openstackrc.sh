@@ -1,0 +1,18 @@
+# The variables in this file are exported for use by OpenStack client
+# applications.
+
+CONFIG_DIR=$(dirname "${BASH_SOURCE[0]:-$0}")
+source "$CONFIG_DIR/openstack"
+source "$CONFIG_DIR/credentials"
+
+#------------------------------------------------------------------------------
+# OpenStack client environment scripts
+#------------------------------------------------------------------------------
+export OS_USERNAME=$ADMIN_USER_NAME
+export OS_PASSWORD=$ADMIN_PASS
+export OS_PROJECT_NAME=$ADMIN_PROJECT_NAME
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2

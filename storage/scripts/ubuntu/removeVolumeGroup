@@ -1,0 +1,2 @@
+sudo vgchange -a n cinder-vol1
+sudo vgremove cinder-vol1
