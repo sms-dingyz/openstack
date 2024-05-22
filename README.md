@@ -747,3 +747,198 @@ sudo systemctl restart apache2
 
 
 
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+
+7. 如何手动删除孤儿网络端口
+openstack port list (查看端口列表）
+
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| ID                                   | Name       | MAC Address       | Fixed IP Addresses                                                           | Status |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+| 62532dbe-992b-4e82-aa40-9abe8de83dbb |            | fa:16:3e:b3:d2:1d | ip_address='10.183.13.232', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6c51143f-5b1f-404c-bcc4-3d2f1cdf6cd3 |            | fa:16:3e:59:f4:c3 | ip_address='10.183.13.243', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 6cf7ab2d-1346-4137-8938-9afd8c2779c0 |            | fa:16:3e:f2:08:93 | ip_address='10.183.13.206', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 8f51972e-6a13-4b58-8431-1deeed30a776 |            | fa:16:3e:66:31:79 | ip_address='10.183.13.211', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| 9eec0b9b-a880-47d0-a679-c2110e81aca0 |            | fa:16:3e:b3:5f:ec | ip_address='10.183.13.201', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| a285243a-8d68-4022-af4a-05dbd0b16bee |            | fa:16:3e:0d:2a:af | ip_address='10.183.13.213', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | ACTIVE |
+| feecee90-0cbe-4d8b-8730-e34a0f36b619 | fixed-port | fa:16:3e:a0:85:2a | ip_address='10.183.13.205', subnet_id='f92fed3a-11dc-4f9d-aa65-24d7af09d5a7' | DOWN   |
++--------------------------------------+------------+-------------------+------------------------------------------------------------------------------+--------+
+
+sudo mysql （终端cmd进入mysql数据库)
+use neutron;(切换数据表）
+delete ports from where id='feecee90-0cbe-4d8b-8730-e34a0f36b619';(删除指定端口feecee90-0cbe-4d8b-8730-e34a0f36b619）
+
+
+8. how to resize instance
+sudo vi /etc/nova/nova.conf
+
+allow_resize_to_same_host = true
+allow_migrate_to_same_host = true
+scheduler_default_filters = AllHostsFilter
+
