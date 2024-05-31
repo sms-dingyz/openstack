@@ -413,13 +413,33 @@ controller
 
 
 
-  
+--------------------------------------------------------------------------  
+如何生成本地安装包
+1.确保网络正常
+2.sudo apt update && sudo apt upgrade
+3.sudo apt install dpkg-dev
+4.sudo mkdir -p /opt/local/debs
+5.copy all debs of openstack to /opt/local.debs
+6. cd /opt/local/debs
+7. dpkg-scanpackages . /dev/null > Release
+8.dpkg-scanpackages . /dev/null | gzip -9c > Packages.gz
+
+如何进行本地测试安装测试(wifi-off.sh关闭wifi,wifi-on.sh打开网络):
+1. sudo apt-get install network-manager
+2. cd /home/stack/scripts/ubuntu
+3. ./prepareEviroment.sh
+4. ./wifi-off.sh
+
+--------------------------------------------------------------------------
+
+
 -------------------------------------------------------------------------- 	
 脚本执行	
 -------------------------------------------------------------------------- 	
 controller
 1. cd /home/stack/scripts/ubuntu
 
+如果是本地安装，需要把所有的安装包拷贝到/opt/local/debs目录。
 Execute the scriptes in the given order:
 -------------------------------------------------------------------------------
 stack@controller:~/scripts/ubuntu$ ./1_controller_apt_init.sh
@@ -453,8 +473,10 @@ stack@controller:~/scripts/ubuntu$ ./21_controller_setup_cinder_1.sh
 stack@controller:~/scripts/ubuntu$ ./22_controller_setup_cinder_2.sh
  
 -------------------------------------------------------------------------------
-
+网络安装执行
 stack@controller:~/scripts/ubuntu$ ./27_controller_setup_swift_1.sh
+本地安装执行
+stack@controller:~/scripts/ubuntu$ ./27_local_controller_setup_swift_1.sh
 stack@controller:~/scripts/ubuntu$ ./28_controller_setup_swift_2.sh
 
  
