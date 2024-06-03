@@ -439,7 +439,7 @@ controller
 controller
 1. cd /home/stack/scripts/ubuntu
 
-如果是本地安装，需要把所有的安装包拷贝到/opt/local/debs目录。
+如果是本地安装，需要把所有的安装包拷贝到/opt/local/debs目录。(所有的.deb包在/home/stack/workspace/opnestack/localdebs)
 Execute the scriptes in the given order:
 -------------------------------------------------------------------------------
 stack@controller:~/scripts/ubuntu$ ./1_controller_apt_init.sh
