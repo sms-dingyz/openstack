@@ -7,6 +7,7 @@ sudo sed  -i '1 i\deb [trusted=yes] file:/opt/local/debs ./' /etc/apt/sources.li
 
 #permit and auth
 sudo sed  -i 's/\#\PasswordAuthentication\ no/PasswordAuthentication\ yes/g' /etc/ssh/sshd_config
+sudo sed  -i 's/\#\PermitRootLogin\ prohibit-password/PermitRootLogin\ yes/g' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 echo "stack ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/stack 
 
