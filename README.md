@@ -1004,3 +1004,19 @@ stack@controller:~$ openstack resource provider inventory list 5159b280-4ac5-48f
 | DISK_GB        |              1.0 |        1 |    10965 |        0 |         1 |  10965 |   6209 |
 +----------------+------------------+----------+----------+----------+-----------+--------+--------+
 
+
+
+如何更改磁盘类型
+
+
+
+如何更改磁盘类型
+1. 选择镜像,点击update metadata
+2.增加disk_bus和hw_disk_bus属性，设定值为ide
+3.重新创建instance
+
+如何更改bios启动顺序
+1. 选择镜像,点击update metadata
+2.增加hw_firmware_type属性，设定值为uefi
+3.重新创建instance
+
