@@ -460,7 +460,6 @@ stack@controller:~/scripts/ubuntu$ ./11_controller_setup_placement_2.sh
 
 stack@controller:~/scripts/ubuntu$ ./12_controller_setup_nova_1.sh
 stack@controller:~/scripts/ubuntu$ ./13_controller_setup_nova_2.sh
-stack@controller:~/scripts/ubuntu$ ./14_controller_setup_nova_3.sh
 
 stack@controller:~/scripts/ubuntu$ ./16_controller_setup_neutron_1.sh
 stack@controller:~/scripts/ubuntu$ ./17_controller_setup_neutron_2.sh
