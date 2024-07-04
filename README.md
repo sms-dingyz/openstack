@@ -1019,3 +1019,99 @@ stack@controller:~$ openstack resource provider inventory list 5159b280-4ac5-48f
 2.增加hw_firmware_type属性，设定值为uefi
 3.重新创建instance
 
+
+
+
+
+how to deploying Ceph Storage Cluster on Debian 22.04
+
+1. Prepare Ceph Nodes for Ceph Storage Cluster Deployment on Debian 22.04
+   Our Ceph Storage Cluster Deployment Architecture
+  
+node1 :cephadm  node
+node2 :mon  node
+node3 :mon  node
+node4 :osd  node
+node5 :osd  node
+node6 :osd  node
+
+2. node1
+hostname : cephadm
+
+hosts:
+edit /etc/hosts and use  specific ip address to replace xxx
+
+192.168.100.xxx ceph-admin
+192.168.100.xxx ceph-mon02
+192.168.100.xxx ceph-mon03
+192.168.100.xxx ceph-osd01
+192.168.100.xxx ceph-osd02
+192.168.100.xxx ceph-osd03
+
+
+ssh-keygen -P ""
+ssh-copy-id controller
+ssh-copy-id comput01 (compute nodes)
+
+
+ssh-copy-id cpeh-mon02
+ssh-copy-id cpeh-mon03
+
+ssh-copy-id cpeh-osd01
+ssh-copy-id cpeh-osd02
+ssh-copy-id cpeh-osd03
+
+sudo -i 
+ssh-key -p ""
+ssh-copy-id controller
+ssh-copy-id comput01 (compute nodes)
+ssh-copy-id cpeh-mon02
+ssh-copy-id cpeh-mon03
+
+ssh-copy-id cpeh-osd01
+ssh-copy-id cpeh-osd02
+ssh-copy-id cpeh-osd03
+
+3.  prepare others nodes ( mon02 mon03 osd01 0sd02 osd03) 
+    
+   In our setup, we have unallocated raw storage devices raw disks of 50G on each OSD node to be used as bluestore for OSD daemons.
+   each osd nodes(osd01 osd02 osd03)  has unallocated 3 raw disks, /dev/vd{a,b,c} of 10GB .
+   
+   sudo ceph orch device ls
+
+
+   ceph-osd01  /dev/sda  hdd              10.0G  Yes                    
+   ceph-osd01  /dev/sdb  hdd              10.0G  Yes                            
+   ceph-osd01  /dev/sdc  hdd              10.0G  Yes                            
+
+   ceph-osd02  /dev/sda  hdd              10.0G  Yes                          
+   ceph-osd02  /dev/sdb  hdd              10.0G  Yes                          
+   ceph-osd02  /dev/sdc  hdd              10.0G  Yes                          
+   ceph-osd03  /dev/sda  hdd              10.0G  Yes                            
+   ceph-osd03  /dev/sdb  hdd              10.0G  Yes       
+   ceph-osd03  /dev/sdc  hdd              10.0G  Yes       
+
+    note: we should use sudo umount /dev/sdx to umount devices
+
+4. execute scripts on given order
+   node2-node6:
+   ceph-apt_init_1.sh
+
+
+   ceph-admin(node1):
+   ceph-apt_init_1.sh 
+   ceph_docker_2.sh
+   ceph_cephadmin_3.sh ( my test host ip is  192.168.100.170 so you should use specific ip to replace 192.168.100.170)
+   
+   after executing ceph-cephadmin_3.sh, we can log in dashboard to create image pool.  in my solution , i created an image pool named glance-images 
+   if you use other name to create image pool ,you should edit script to replace glance-images.
+   https://ceph-admin:8443/
+   
+   ceph_add_nodes_4.sh
+  
+   now we should go to controller node of openstack and execute script ceph_controller_6.sh
+
+   back to ceph-admin node to execute ceph_config_7.sh
+   
+   go to controller node execute ceph_authentication_8.sh
+
